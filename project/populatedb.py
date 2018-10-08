@@ -1,5 +1,13 @@
 import requests
+import os
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "lottofacts.settings")
+import django
 from xml.etree import ElementTree
+
+
+django.setup()
+
+from lottofactsapp.models import Lotto, Draw, Prizes
 
 drawTypes = ["Lotto", "LottoPlus1", "LottoPlus2", "EuroMillions", "EuroMillionsPlus", "DailyMillion", "DailyMillionPlus", "Lotto_54321", "LottoPlus1_54321", "LottoPlus2_54321"]
 
@@ -36,4 +44,3 @@ for child in tree.iter('DrawResult'):
   
 
   
-#  print('{} {}'.format(todo_item['id'], todo_item['summary']))
